@@ -19,3 +19,22 @@
 # How many sides? 20
 # Here are the results: [18, 19, 6, 8, 13, 6, 6, 6, 18, 12, 20, 10, 14, 8, 14, 17, 12, 15, 20, 17]
 
+
+import random
+
+def roll_dice(NumberDice, NumberSides):
+    return [random.randint(1, NumberSides) for _ in range(NumberDice)]
+
+while True:
+    try:
+        NumberDice = int(input("How many dice are you rolling? "))
+        NumberSides = int(input("How many sides are on this / these dice? "))
+
+        if NumberDice <= 0 or NumberSides <= 1:
+            print("Error: Numbers are the only thing that effectively describe the NUMBER of sides and the NUMBER of dice...keyword here is NUMBER. Please try again, silly goose!")
+        else: 
+            results = roll_dice(NumberDice, NumberSides)
+            print(f"Here are the results: {results}")
+            break
+    except ValueError:
+        print("Error: Numbers are the only thing that effectively describe the NUMBER of sides and the NUMBER of dice...keyword here is NUMBER. Please try again, silly goose!")
